@@ -2,19 +2,30 @@ using UnityEngine;
 
 public class interactScript : MonoBehaviour
 {
+    public SpriteRenderer sprite;
     [SerializeField] private AudioSource buttonSound;
+    public bool isReady;
 
-    public bool isReady = false;
-
-    Renderer ren;
-
-    // Start is called before the first frame update
     void Start()
     {
-        ren = GetComponent<Renderer>();
+        sprite = GetComponent<SpriteRenderer>();
+    }
+
+    void Update()
+    {
         if (isReady)
         {
-            ren.material.color = Color.green;
+            sprite.color = Color.green;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        print("triggering");
+        if (isReady & other.CompareTag("Player"))
+        {
+            print("Working");
+            sprite.color = Color.grey;
         }
     }
 }
