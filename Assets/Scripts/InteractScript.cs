@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class interactScript : MonoBehaviour
+public class InteractScript : MonoBehaviour
 {
-    public SpriteRenderer sprite;
+    [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private AudioSource buttonSound;
     public bool isReady;
 
