@@ -21,10 +21,10 @@ public class InteractScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        print("triggering");
+        Debug.Log("triggering");
         if (isReady & other.CompareTag("Player"))
         {
-            print("Working");
+            Debug.Log("Working");
             sprite.color = Color.grey;
         }
     }

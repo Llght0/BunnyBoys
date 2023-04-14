@@ -1,7 +1,6 @@
-using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerMovement : NetworkBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
     private float vertical;
@@ -13,8 +12,6 @@ public class PlayerMovement : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!IsOwner) return;
-
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
@@ -23,8 +20,6 @@ public class PlayerMovement : NetworkBehaviour
 
     private void FixedUpdate()
     {
-        if (!IsOwner) return;
-
         rb.velocity = new Vector2(horizontal * speed, vertical * speed);
     }
 
