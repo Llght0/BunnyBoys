@@ -11,7 +11,7 @@ public class MenuUI : MonoBehaviour
     private void Awake()
     {
         playButton.onClick.AddListener(() => {
-            SceneManager.LoadScene("Party");
+            SceneManager.LoadSceneAsync("Party", LoadSceneMode.Single);
         });
 
         tutorialButton.onClick.AddListener(() => {

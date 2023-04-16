@@ -4,24 +4,30 @@ using UnityEngine.SceneManagement;
 
 public class PartyUI : MonoBehaviour
 {
-    [SerializeField] private Button readyButton;
+    [SerializeField] private Button startButton;
     [SerializeField] private Button p3Button;
     [SerializeField] private Button p4Button;
+    [SerializeField] private GameObject P3;
+    [SerializeField] private GameObject P4;
 
     private void Awake()
     {
-        readyButton.onClick.AddListener(() => {
+        startButton.onClick.AddListener(() => {
             SceneManager.LoadScene("Level01");
         });
 
+        // Third Player
         p3Button.onClick.AddListener(() => {
-            Debug.Log("Not yet implemented.");
-            // Third Player
+            p3Button.gameObject.SetActive(false);
+            P3.SetActive(true);
+            GameManager.player3 = true;
         });
 
+        // Fourth Player
         p4Button.onClick.AddListener(() => {
-            Debug.Log("Not yet implemented.");
-            // Fourth Player
+            p4Button.gameObject.SetActive(false);
+            P4.SetActive(true);
+            GameManager.player4 = true;
         });
     }
 }
